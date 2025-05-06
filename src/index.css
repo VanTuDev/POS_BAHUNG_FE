@@ -117,6 +117,9 @@ button:focus-visible {
   }
 }
 
+
+
+
 /* Custom scrollbar styling */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px; /* Reduced from 1.2em to 4px */
