@@ -1,0 +1,137 @@
+/* 
+  POS Screen Sizes Support:
+  5.6 inch: Tỉ lệ chung cho màn hình điện thoại
+  1024 × 768 (4:3): Màn hình POS cổ điển
+  1280 × 800 (16:10) và 1366 × 768 (16:9): Màn hình hiện đại
+*/
+
+/* Base styles - Mobile First */
+.pos-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* 5.6 inch mobile devices (portrait) - khoảng 360-375px chiều rộng */
+@media screen and (min-width: 360px) {
+  .pos-container {
+    max-width: 360px;
+  }
+  
+  .pos-header {
+    font-size: 18px;
+  }
+  
+  .pos-content {
+    padding: 10px;
+  }
+}
+
+/* 5.6 inch mobile devices (landscape) */
+@media screen and (min-width: 640px) {
+  .pos-container {
+    max-width: 640px;
+  }
+}
+
+/* Tablet và màn hình POS cổ điển (1024x768) */
+@media screen and (min-width: 1024px) {
+  .pos-container {
+    max-width: 1024px;
+    padding: 0 20px;
+  }
+  
+  .pos-header {
+    font-size: 22px;
+  }
+  
+  .pos-content {
+    padding: 20px;
+  }
+  
+  /* Tỉ lệ 4:3 cho màn hình POS */
+  .pos-screen-4-3 {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* Màn hình POS hiện đại (1280x800) */
+@media screen and (min-width: 1280px) {
+  .pos-container {
+    max-width: 1280px;
+  }
+  
+  /* Tỉ lệ 16:10 cho màn hình POS */
+  .pos-screen-16-10 {
+    aspect-ratio: 16/10;
+  }
+}
+
+/* Màn hình POS hiện đại (1366x768) */
+@media screen and (min-width: 1366px) {
+  .pos-container {
+    max-width: 1366px;
+  }
+  
+  /* Tỉ lệ 16:9 cho màn hình POS */
+  .pos-screen-16-9 {
+    aspect-ratio: 16/9;
+  }
+}
+
+/* Utilities cho màn hình cảm ứng */
+.touchable {
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touchable:active {
+  opacity: 0.7;
+}
+
+/* Điều chỉnh font size cho các màn hình khác nhau */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1367px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Tối ưu cho màn hình cảm ứng */
+input, 
+button, 
+select, 
+textarea {
+  font-size: 16px; /* Ngăn iOS zoom khi focus input */
+}
+
+button, 
+.button, 
+[role="button"] {
+  min-height: 44px; /* Kích thước tối thiểu khuyến nghị cho các nút trên màn hình cảm ứng */
+  min-width: 44px;
+}
+
+/* Khoảng cách giữa các phần tử có thể chạm */
+.touch-spacing > * {
+  margin-bottom: 12px;
+}
+
+/* Fix cho màn hình cảm ứng trên iOS */
+@supports (-webkit-touch-callout: none) {
+  .ios-height-fix {
+    height: -webkit-fill-available;
+  }
+} 
