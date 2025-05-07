@@ -25,8 +25,7 @@ export default defineConfig({
                   type: 'image/svg+xml',
                   purpose: 'any maskable'
                }
-            ],
-            gcm_sender_id: '103953800507'
+            ]
          },
          workbox: {
             runtimeCaching: [

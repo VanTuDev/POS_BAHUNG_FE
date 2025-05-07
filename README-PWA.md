@@ -1,6 +1,6 @@
-# PWA Demo với Push Notification
+# PWA Demo: POS Bahung
 
-Đây là dự án demo Progressive Web App (PWA) có hỗ trợ Push Notification.
+Đây là dự án Progressive Web App (PWA) có khả năng hoạt động offline và cài đặt lên màn hình chính.
 
 ## Cài đặt và chạy
 
@@ -13,24 +13,17 @@
 # Clone dự án (nếu chưa có)
 git clone <đường_dẫn_repository> 
 
-
 # Cài đặt các dependencies
 npm install
 ```
 
 ### Chạy ứng dụng
 ```bash
-# Khởi động server
-node server.js
+# Khởi động ứng dụng phát triển
+npm run dev
 ```
 
-Server sẽ chạy tại http://localhost:3000
-
-## Cách sử dụng
-
-1. Mở trình duyệt và truy cập vào http://localhost:3000
-2. Bấm nút "Đăng ký nhận thông báo" để cấp quyền push notification
-3. Sau khi đăng ký thành công, bạn có thể bấm nút "Gửi thông báo" để test
+Ứng dụng sẽ chạy tại http://localhost:3000
 
 ## Test trên điện thoại di động
 
@@ -50,40 +43,39 @@ Server sẽ chạy tại http://localhost:3000
 ## Cấu trúc dự án
 
 ```
-pwa-demo/
-├── public/                  # Frontend
+POS_BAHUNG_FE/
+├── public/                  # Tài nguyên tĩnh
 │   ├── icons/               # Các icon cho PWA
-│   ├── index.html           # File HTML chính
-│   ├── app.js               # JavaScript chính
+│   ├── logo.svg             # Logo chính
 │   ├── service-worker.js    # Service Worker
 │   └── manifest.json        # Manifest file cho PWA
-├── server.js                # Backend Node.js
-├── package.json             # Dependencies
-└── README.md                # Hướng dẫn này
+├── dev-dist/                # Thư mục tạo ra bởi Vite PWA Plugin
+├── src/                     # Mã nguồn chính
+├── vite.config.js           # Cấu hình Vite và PWA
+└── README-PWA.md            # Hướng dẫn này
 ```
 
 ## Các công nghệ được sử dụng
 
 - Frontend:
-  - HTML, CSS, JavaScript thuần
+  - React
+  - Tailwind CSS
+  - Vite
   - Service Worker API
-  - Push API
-  - Notification API
-
-- Backend:
-  - Node.js
-  - Express
-  - web-push
 
 ## Lưu ý
 
-- PWA chỉ hoạt động trên kết nối HTTPS hoặc localhost
-- Trên một số thiết bị, push notification có thể không hoạt động do cài đặt bảo mật
-- VAPID keys trong dự án nên được thay đổi khi triển khai thực tế
+- PWA chỉ hoạt động tốt nhất trên kết nối HTTPS hoặc localhost
+- Nên kiểm tra trên nhiều thiết bị và trình duyệt khác nhau
+
+## Tính năng PWA
+
+- **Offline Capability**: Ứng dụng có thể hoạt động khi không có mạng
+- **Installable**: Có thể cài đặt lên màn hình chính như ứng dụng native
+- **Responsive**: Thiết kế thích ứng với nhiều kích thước màn hình
 
 ## Tài nguyên tham khảo
 
-- [Web Push Notifications: Timely, Relevant, and Precise](https://developers.google.com/web/fundamentals/push-notifications)
 - [Progressive Web Apps](https://web.dev/progressive-web-apps/)
 - [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
-- [Push API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API) 
+- [Vite PWA Plugin](https://vite-pwa-org.netlify.app/) 
